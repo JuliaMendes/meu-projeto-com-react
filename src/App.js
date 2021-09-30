@@ -1,63 +1,16 @@
 import dummy from './assets/images/product_dummy.svg';
-import avatar from './assets/images/dummy-avatar.jpg';
-import './assets/css/app.css'
+import './assets/css/app.css';
+
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import CardStats from './components/CardStats';
 
 function App() {
   return (
     <div id="wrapper">
 
       {/* <!-- Sidebar --> */}
-      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        {/* <!-- Sidebar - Brand --> */}
-        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-          <div className="sidebar-brand-icon">
-            <i className="fas fa-chart-line"></i>
-          </div>
-          <div className="sidebar-brand-text mx-3">Admin</div>
-        </a>
-
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider my-0" />
-
-        {/* <!-- Nav Item - Dashboard --> */}
-        <li className="nav-item active">
-          <a className="nav-link" href="/">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-        </li>
-
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider" />
-
-        {/* <!-- Heading --> */}
-        <div className="sidebar-heading">Actions</div>
-
-        {/* <!-- Nav Item - Pages --> */}
-        <li className="nav-item">
-          <a className="nav-link collapsed" href="/">
-            <i className="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-        </li>
-
-        {/* <!-- Nav Item - Charts --> */}
-        <li className="nav-item">
-          <a className="nav-link" href="/">
-            <i className="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-        </li>
-
-        {/* <!-- Nav Item - Tables --> */}
-        <li className="nav-item">
-          <a className="nav-link" href="/">
-            <i className="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-        </li>
-
-        {/* <!-- Divider --> */}
-        <hr className="sidebar-divider d-none d-md-block" />
-      </ul>
+      <Sidebar />
       {/* <!-- End of Sidebar --> */}
 
       {/* <!-- Content Wrapper --> */}
@@ -67,47 +20,9 @@ function App() {
         <div id="content">
 
           {/* <!-- Topbar --> */}
-          <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-            {/* <!-- Sidebar Toggle (Topbar) --> */}
-            <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
-              <i className="fa fa-bars"></i>
-            </button>
+          <Navbar />
 
-            {/* <!-- Topbar Navbar --> */}
-            <ul className="navbar-nav ml-auto">
-
-              {/* <!-- Nav Item - Alerts --> */}
-              <li className="nav-item dropdown no-arrow mx-1">
-                <a className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
-                  <i className="fas fa-bell fa-fw"></i>
-                  {/* <!-- Counter - Alerts --> */}
-                  <span className="badge badge-danger badge-counter">3+</span>
-                </a>
-              </li>
-
-              {/* <!-- Nav Item - Messages --> */}
-              <li className="nav-item dropdown no-arrow mx-1">
-                <a className="nav-link dropdown-toggle" href="/" id="messagesDropdown">
-                  <i className="fas fa-envelope fa-fw"></i>
-                  {/* <!-- Counter - Messages --> */}
-                  <span className="badge badge-danger badge-counter">7</span>
-                </a>
-              </li>
-
-              <div className="topbar-divider d-none d-sm-block"></div>
-
-              {/* <!-- Nav Item - User Information --> */}
-              <li className="nav-item dropdown no-arrow">
-                <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-                  <span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
-                  <img className="img-profile rounded-circle" src={avatar} width="60" alt="" />
-                </a>
-              </li>
-
-            </ul>
-
-          </nav>
           {/* <!-- End of Topbar --> */}
 
           {/* <!-- Begin Page Content --> */}
@@ -122,56 +37,14 @@ function App() {
             <div className="row">
 
               {/* <!-- Amount of Products in DB --> */}
-              <div className="col-md-4 mb-4">
-                <div className="card border-left-primary shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Products in Data Base</div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">135</div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardStats cor="primary" titulo="Produtos no banco de dados" valor="200" icone="fa-clipboard-list" />
 
               {/* <!-- $$$ of all products in DB --> */}
-              <div className="col-md-4 mb-4">
-                <div className="card border-left-success shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Amount in products</div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">$546.456</div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardStats cor="success" titulo="Amount in products" valor="$546.456" icone="fa-dollar-sign" />
 
               {/* <!-- Amount of users in DB --> */}
-              <div className="col-md-4 mb-4">
-                <div className="card border-left-warning shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity
-                        </div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">38</div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-user-check fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardStats cor="warning" titulo="Users quantity" valor="38" icone="fa-user-check" />
+
             </div>
 
             {/* <!-- Content Row --> */}
@@ -264,7 +137,8 @@ function App() {
 
       </div>
       {/* <!-- End of Content Wrapper --> */}
-      {/* {/<!-- End of Page Wrapper -->/} */}
+
+      {/* <!-- End of Page Wrapper --> */}
     </div>
   );
 }
